@@ -2,7 +2,7 @@ import javax.swing.JFrame;
 
 
 public class GameFrame {
-
+    
     private JFrame mainFrame;
 
     public GameFrame() {

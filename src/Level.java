@@ -6,33 +6,46 @@ import java.util.Iterator;
 
 public class Level {
 
-    JPanel panel = new JPanel();
     private ArrayList<Stack> listStack = new ArrayList<Stack>();
     private HashMap<Integer, ArrayList<Stack>> levelStack = new HashMap<Integer, ArrayList<Stack>>();
+    private int level;
 
     public Level(int level) {
-
         addLevels();
         listStack = new ArrayList<Stack>();
-        initLevel(level);
-        JButton button = new JButton("asd");
-        button.get
+        this.level =level;
     }
 
-    private void initLevel(final int level) {
-        if(levelStack.containsKey(level)){
+    private void initLevel() {
+
+        if (levelStack.containsKey(level)) {
             Iterator<Stack> iter = levelStack.get(level).iterator();
-            while(iter.hasNext()){
+            while (iter.hasNext()) {
                 Stack temp = iter.next();
-                panel.add(temp.getGraphicsAs());
             }
         }
     }
 
+    private JPanel temp;
+    {
+        temp = new JPanel() {
+            @Override
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Iterator<Stack> iter = levelStack.get(level).iterator();
+                while (iter.hasNext()) {
+                    Stack temp = iter.next();
+                    g.drawImage(temp.getImage(), temp.getX(), temp.getY(), null);
+                }
+
+            }
+        };
+    }
+
     private void addLevels() {
-        int x[] = {100, 700, 100, 700, 350};
-        int y[] = {100, 100, 700, 700, 350};
-        for (int i = 0; i <= 5; i++) {
+        int x[] = {100, 850, 500, 100, 850};
+        int y[] = {100, 100, 500, 850, 850};
+        for (int i = 0; i <= 4; i++) {
             Stack temp = new Stack(x[i], y[i]);
             listStack.add(temp);
         }
@@ -40,7 +53,7 @@ public class Level {
     }
 
     public JPanel getPanel(){
-        panel.setBackground(Color.white);
-        return panel;
+        temp.setBackground(Color.white);
+        return temp;
     }
 }

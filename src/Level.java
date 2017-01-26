@@ -26,20 +26,20 @@ public class Level {
         }
     }
 
-    private JPanel temp;
-    {
-        temp = new JPanel() {
-            @Override
-            public void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                Iterator<Stack> iter = levelStack.get(level).iterator();
-                while (iter.hasNext()) {
-                    Stack temp = iter.next();
-                    g.drawImage(temp.getImage(), temp.getX(), temp.getY(), null);
-                }
+    private JPanel panel;
+        {
+            panel = new JPanel() {
+                @Override
+                public void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    Iterator<Stack> iter = levelStack.get(level).iterator();
+                    while (iter.hasNext()) {
+                        Stack temp = iter.next();
+                        g.drawImage(temp.getImage(), temp.getX(), temp.getY(), null);
+                    }
 
-            }
-        };
+                }
+            };
     }
 
     private void addLevels() {
@@ -53,7 +53,7 @@ public class Level {
     }
 
     public JPanel getPanel(){
-        temp.setBackground(Color.white);
-        return temp;
+        panel.setBackground(Color.white);
+        return panel;
     }
 }

@@ -1,6 +1,5 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +15,7 @@ public class Stack extends JComponent{
         stackPosY = posY;
         try
         {
-            image = ImageIO.read(new File("C:\\Users\\Frost\\IdeaProjects\\StackWars\\Graphics\\Stack.png"));
+            image = ImageIO.read(new File("Graphics\\Stack.png"));
         }
         catch (IOException e)
         {
@@ -36,6 +35,5 @@ public class Stack extends JComponent{
     public int getY(){
         return stackPosY;
     }
-
 
 }

@@ -16,16 +16,6 @@ public class Level {
         this.level =level;
     }
 
-    private void initLevel() {
-
-        if (levelStack.containsKey(level)) {
-            Iterator<Stack> iter = levelStack.get(level).iterator();
-            while (iter.hasNext()) {
-                Stack temp = iter.next();
-            }
-        }
-    }
-
     private JPanel panel;
         {
             panel = new JPanel() {
